@@ -3,8 +3,8 @@ if test -x /home/linuxbrew/.linuxbrew/bin/brew
 end
 
 if type -q docker-color-output
-  alias di "docker images [--format] | docker-color-output"
-  alias dps "docker ps [-a] [--format] | docker-color-output"
+  alias di "docker images --format | docker-color-output"
+  alias dps "docker ps -a --format | docker-color-output"
   alias dcps "docker-compose ps | docker-color-output"
 end
 
