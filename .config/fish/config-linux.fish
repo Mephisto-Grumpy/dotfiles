@@ -2,7 +2,11 @@ if test -x /home/linuxbrew/.linuxbrew/bin/brew
   eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 end
 
-# source $HOME/.cargo/env
+if type -q docker-color-output
+  alias di "docker images [--format] | docker-color-output"
+  alias dps "docker ps [-a] [--format] | docker-color-output"
+  alias dcps "docker-compose ps | docker-color-output"
+end
 
 if type -q exa
   alias ll "exa -l -g --icons"
