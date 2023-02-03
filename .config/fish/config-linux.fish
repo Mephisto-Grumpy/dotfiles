@@ -1,5 +1,5 @@
 if test -x /home/homebrew/bin/brew
-  eval (/home/homebrew//bin/brew shellenv)
+  eval (/home/homebrew/bin/brew shellenv)
 end
 
 # source $HOME/.cargo/env
