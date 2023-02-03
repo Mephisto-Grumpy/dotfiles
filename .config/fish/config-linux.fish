@@ -5,7 +5,7 @@ end
 if type -q docker-color-output
   alias di "docker images | docker-color-output"
   alias dps "docker ps -a | docker-color-output"
-  alias dcps "docker compose ps | docker-color-output"
+  alias dcps "docker-compose ps | docker-color-output"
 end
 
 if type -q exa
