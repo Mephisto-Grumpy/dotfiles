@@ -92,3 +92,4 @@ Pods/
 .config/nextjs-nodejs
 .config/gatsby/
 .config/github-copilot
+.config/create-next-app-nodejs
