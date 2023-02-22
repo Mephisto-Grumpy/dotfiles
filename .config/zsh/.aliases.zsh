@@ -12,8 +12,8 @@ alias lta='lt a'
 
 alias grep="grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 
-alias docker-clean="docker rm -v \$(docker ps -a -q -f status=exited) && docker rmi \$(docker images -f dangling=true -q)"
-alias dc-restart="docker-compose down && docker-compose up -d"
+alias docker-clean="docker image prune -a && docker container prune && docker volume prune && docker network prune"
+alias docker-compose-restart="docker compose down && docker compose up -d"
 
 # Git
 alias g='git'
