@@ -4,14 +4,14 @@
 unsetopt BG_NICE
 
 # Custom aliases
-[ -f ~/.config/zsh/.aliases.zsh ] && source ~/.config/zsh/.aliases.zsh
+[ -f ~/.dotfiles/.config/zsh/aliases.zsh ] && source ~/.dotfiles/.config/zsh/aliases.zsh
 
 # All zsh plugins (Generated via Antibody)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-[ -f ~/.config/zsh/.zsh_plugins.zsh ] && source ~/.config/zsh/.zsh_plugins.zsh
+[ -f ~/.dotfiles/.config/zsh/plugins.zsh ] && source ~/.dotfiles/.config/zsh/plugins.zsh
 
 # All zsh history
-[ -f ~/.config/zsh/.zsh_history.zsh ] && source ~/.config/zsh/.zsh_history.zsh
+[ -f ~/.dotfiles/.config/zsh/history.zsh ] && source ~/.dotfiles/.config/zsh/history.zsh
 
 # Oh my zsh and powerlevel10k
 [ -f ~/.oh-my-zsh/oh-my-zsh.sh ] && source ~/.oh-my-zsh/oh-my-zsh.sh
@@ -75,7 +75,7 @@ preexec_functions=($preexec_functions tabtitle_preexec)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [ -f ~/.config/zsh/.p10k.zsh ] && source ~/.config/zsh/.p10k.zsh
-[[ ! -f ~/.dotfiles/.config/zsh/.p10k.zsh ]] || source ~/.dotfiles/.config/zsh/.p10k.zsh
+[[ ! -f ~/.dotfiles/.config/zsh/p10k.zsh ]] || source ~/.dotfiles/.config/zsh/p10k.zsh
 
 # Disable create .p10k.zsh file
 typeset -g POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
