@@ -45,9 +45,14 @@ Requires [Neovim](https://neovim.io/) (>= 0.8)
 - [ghq](https://github.com/x-motemen/ghq) - Local Git repository organizer
 - [peco](https://github.com/peco/peco) - Interactive filtering
 - [Fish shell](https://fishshell.com/) - User-friendly shell
-- [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
-- [Tide](https://github.com/IlanCosman/tide) - Shell theme. Use version 5: `fisher install ilancosman/tide@v5`
-- [z for fish](https://github.com/jethrokuan/z) - Directory jumping: `fisher install jethrokuan/z`
+  - [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
+  - [Tide](https://github.com/IlanCosman/tide) - Shell theme. Use version 5: `fisher install ilancosman/tide@v5`
+  - [z for fish](https://github.com/jethrokuan/z) - Directory jumping: `fisher install jethrokuan/z`
+- [ZSH shell](https://www.zsh.org/) - Designed for interactive
+  - [p10k](https://github.com/romkatv/powerlevel10k) - A Zsh theme
+  - [oh-my-zsh](https://ohmyz.sh/) - A delightful
+- [Antibody](https://getantibody.github.io/) - A shell plugin manager made from the ground up thinking about performance`curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin` and then `antibody bundle < ~/.dotfiles/.config/zsh/plugin.zsh > ~/.zsh_plugins.zsh`
+- [Volta](https://volta.sh/) - The Hassle-Free JavaScript Tool Manager `curl https://get.volta.sh | bash`
 
 ## ©️ Reference setting
 

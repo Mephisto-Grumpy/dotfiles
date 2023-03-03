@@ -8,7 +8,8 @@ unsetopt BG_NICE
 
 # All zsh plugins (Generated via Antibody)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-[ -f ~/.dotfiles/.config/zsh/plugins.zsh ] && source ~/.dotfiles/.config/zsh/plugins.zsh
+# [ -f ~/.dotfiles/.config/zsh/plugins.zsh ] source ~/.dotfiles/.config/zsh/plugins.zsh
+[ -f ~/.zsh_plugins.zsh ] && source ~/.zsh_plugins.zsh
 
 # All zsh history
 [ -f ~/.dotfiles/.config/zsh/history.zsh ] && source ~/.dotfiles/.config/zsh/history.zsh
