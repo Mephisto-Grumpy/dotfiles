@@ -15,6 +15,7 @@ alias lla='ls -la'
 alias l='ls -CF'
 
 alias python="python3"
+alias vim="nvim"
 alias g="git"
 alias gt="goto"
 alias grep='grep --color'
