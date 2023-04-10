@@ -6,7 +6,6 @@ robbyrussell/oh-my-zsh path:plugins/tig
 robbyrussell/oh-my-zsh path:plugins/ssh-agent
 robbyrussell/oh-my-zsh path:plugins/gpg-agent
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
-lukechilds/zsh-nvm
 z-shell/zsh-navigation-tools
 zdharma-continuum/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
