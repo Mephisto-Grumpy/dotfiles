@@ -75,6 +75,9 @@ deleted = " "
 format = 'via [ﴱ $context\($namespace\)](bold purple) '
 disabled = false
 
+[kubernetes.context_aliases]
+"docker-desktop" = "docker"
+
 # ---
 
 # Disable some modules that aren't needed anymore
