@@ -93,3 +93,8 @@ Pods/
 .config/gatsby/
 .config/github-copilot
 .config/create-next-app-nodejs
+
+# Docker
+.docker/.token_seed
+.docker/.token_seed.lock
+.docker/buildx/
