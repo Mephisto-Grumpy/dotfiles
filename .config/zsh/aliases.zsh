@@ -15,7 +15,11 @@ alias lla='ls -la'
 alias l='ls -CF'
 
 alias python="python3"
+alias pip="pip3"
 alias vim="nvim"
 alias g="git"
 alias gt="goto"
 alias grep='grep --color'
+
+# ALIAS XDG
+[[ -n $WSL_DISTRO_NAME ]] && alias open="xdg-open"
