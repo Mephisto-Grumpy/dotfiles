@@ -94,6 +94,7 @@ Pods/
 .config/github-copilot
 .config/create-next-app-nodejs
 .config/gcloud/
+.config/dlv/
 
 # Docker
 .docker/.token_seed
