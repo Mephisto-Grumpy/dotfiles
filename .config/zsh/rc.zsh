@@ -9,8 +9,14 @@
 # [[ -f ~/.dotfiles/.config/zsh/plugin.zsh ]] && source ~/.dotfiles/.config/zsh/plugin.zsh
 [[ -f ~/.zsh_plugins.zsh ]] && source ~/.zsh_plugins.zsh
 
-# Load HomeBrew
+# Load HomeBrew (Linux)
 [[ -d /home/linuxbrew/.linuxbrew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Load HomeBrew (macOS)
+[[ -d /usr/local/Homebrew ]] && eval "$(/usr/local/bin/brew shellenv)"
+
+# Load Anaconda
+[[ -d ~/.anaconda ]] && eval "$(~/.anaconda3/bin/conda shell.zsh hook)"
 
 # Load Starship windows
 source <(starship init zsh)
