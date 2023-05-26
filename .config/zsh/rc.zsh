@@ -16,7 +16,7 @@
 [[ -d /usr/local/Homebrew ]] && eval "$(/usr/local/bin/brew shellenv)"
 
 # Load Anaconda
-[[ -d ~/.anaconda ]] && eval "$(~/.anaconda3/bin/conda shell.zsh hook)"
+[[ -d ~/.anaconda3 ]] && eval "$(~/.anaconda3/bin/conda shell.zsh hook)"
 
 # Load Starship windows
 source <(starship init zsh)
