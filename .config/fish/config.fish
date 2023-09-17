@@ -48,6 +48,9 @@ set -gx PATH node_modules/.bin $PATH
 set -gx PNPM_HOME $HOME/.pnpm-global
 set -gx PATH $PNPM_HOME $PATH
 
+# Bun
+set -gx PATH $HOME/.bun/bin $PATH
+
 # Python
 set -gx PATH $HOME/.local/bin $PATH
 
