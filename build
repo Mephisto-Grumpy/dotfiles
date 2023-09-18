@@ -1,0 +1,76 @@
+#!/bin/bash
+
+##############################################
+#                   COLOR                    # 
+##############################################
+RED="\033[0;31m"
+BLUE="\033[0;34m"
+RESET="\033[0m"
+
+##############################################
+#                   PATH                     #
+##############################################
+DOTFILES_PATH="$HOME/.dotfiles"
+
+##############################################
+#                   UTILS                    #
+##############################################
+if [ ! -d "$DOTFILES_PATH" ]; then
+    echo -e "${RED}ERROR: ${RESET}Dotfiles path not found"
+    exit 1
+fi
+
+##############################################
+#                INSTALLATION                #
+##############################################
+echo "${BLUE}Installing 🍺 Homebrew...${RESET}"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+if ! command -v brew &> /dev/null; then
+    echo -e "${RED}ERROR: Homebrew installation failed.${RESET}"
+    exit 1
+fi
+
+echo -e "${BLUE}Sourcing Homebrew...${RESET}"
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+
+echo -e "${BLUE}Installing 🍺 Homebrew packages...${RESET}"
+brew bundle --file="$DOTFILES_PATH/Brewfile"
+
+##############################################
+#                   SHELL                    #
+##############################################
+echo -e "${BLUE}Setting up 🐟 Fish shell...${RESET}"
+
+if ! command -v fish &> /dev/null; then
+    echo -e "${RED}ERROR: Fish shell is not installed.${RESET}"
+    exit 1
+fi
+
+if ! fish -c "fisher --version" > /dev/null; then
+    fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+else
+    echo "Fisher is already installed."
+fi
+
+echo -e "${BLUE}Setting up 🐟 Fish shell as default shell...${RESET}"
+echo "$(which fish)" | sudo tee -a /etc/shells
+exec chsh -s "$(which fish)"
+
+echo "${BLUE}Installing 🐟 Fish shell packages...${RESET}"
+fish -c "fisher install jethrokuan/z"
+fish -c "fisher install PatrickF1/fzf.fish"
+fish -c "fisher install nickeb96/puffer-fish"
+fish -c "fisher install laughedelic/pisces"
+
+##############################################
+#                   LINKS                    #
+##############################################
+echo "${BLUE}Linking dotfiles...${RESET}"
+ln -sf "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTFILES_PATH/.gitignore" "$HOME/.gitignore"
+ln -sf "$DOTFILES_PATH/.config" "$HOME/.config"
+ln -sf "$DOTFILES_PATH/.czrc" "$HOME/.czrc"
