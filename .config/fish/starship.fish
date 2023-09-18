@@ -12,7 +12,11 @@ switch (uname)
         if test -f $LFILE
             set -g _distro (awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
         end
-        set -g _device (uname -a | awk '{print $3}') # set -g _device (uname -a | awk '{print $3}' | awk -F'-' '{print tolower($4)}')
+        if lscpu | grep -i 'model name' | grep -q 'Mobile'
+            set -g _device "Laptop"
+        else
+            set -g _device "PC"
+        end
     case "*"
         set -g _distro ""
 end
@@ -69,14 +73,10 @@ switch $_distro
 end
 
 switch $_device
-    case "*MacBook*"
+    case "*MacBook*" "*Macmini*" "*MacPro*" "*iMac*" "*Laptop*"
         set -g DEVICE " "
-    case "*mini*"
+    case "*mini*" "*NUC*" "*PC*"
         set -g DEVICE "󰇄 "
-    case "wsl2" "wsl" "*microsoft*"
-        set -g DEVICE "󰻀 "
-    case "*raspberry*"
-        set -g DEVICE "󰐿 "
     case "*"
         set -g DEVICE "󱓇 "
 end
