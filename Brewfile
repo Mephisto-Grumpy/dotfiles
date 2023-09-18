@@ -1,22 +1,28 @@
 ##############################################
-#               CORE FORMULAS                #
+#                Brew Bundle                 #
 ##############################################
-git
-ghq
-exa
-fzf
-peco
-tmux
-fish
-neovim
-lazygit
-##############################################
-
-##############################################
-#                DEVELOPMENT                 #
-##############################################
-node
-python
-oven-sh/bun/bun
-pungrumpy/formulas/dockercolorize
-pnpm
+tap "homebrew/bundle"
+tap "jesseduffield/lazygit"
+tap "oven-sh/bun"
+tap "pungrumpy/formulas"
+brew "asciinema"
+brew "bat"
+brew "docker"
+brew "exa"
+brew "fd"
+brew "fish"
+brew "fzf"
+brew "ghq"
+brew "git-extras"
+brew "neofetch"
+brew "neovim"
+brew "node"
+brew "openjdk"
+brew "peco"
+brew "pnpm"
+brew "starship"
+brew "tmux"
+brew "tmuxinator"
+brew "jesseduffield/lazygit/lazygit"
+brew "oven-sh/bun/bun"
+brew "pungrumpy/formulas/dockercolorize"

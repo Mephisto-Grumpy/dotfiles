@@ -95,6 +95,9 @@ Pods/
 # Alacritty
 .config/alacritty/*.bak
 
+# Brew bundle
+Brewfile.lock.json
+
 # Folder
 .config/Electron
 .config/yarn
