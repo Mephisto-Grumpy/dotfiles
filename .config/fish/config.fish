@@ -67,7 +67,12 @@ end
 set -gx GOPATH $HOME/.go
 
 # Starship
-if command -qv starship
+if command -qv starship &> /dev/null
     source (dirname (status --current-filename))/starship.fish
     eval (starship init fish)
+end
+
+# Docker
+if command -qv docker &> /dev/null && command -qv dockercolorize &> /dev/null
+    source (dirname (status --current-filename))/docker.fish
 end
