@@ -11,6 +11,8 @@
 
 ## `🐟` Shell (🍎 & 🐧)
 
+- [Starship](https://starship.rs/) - The minimal, blazing-fast, and infinitely customizable prompt for any shell
+- [Nerd Font](https://www.nerdfonts.com/) - A collection of over 50 patched fonts
 - [Homebrew](https://brew.sh/) - The missing package manager for macOS (or Linux)
 - [Fish Shell](https://fishshell.com/) - A smart and user-friendly command line shell
   - [Fisher](https://github.com/jorgebucaran/fisher) - A plugin manager for Fish Shell `curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher`
@@ -30,15 +32,7 @@
 ## `📦` Setup
 
 ```bash
-git clone git@github.com:Mephisto-Grumpy/dotfiles.git ~/.dotfiles
-```
-
-```bash
-# Make sure you live in $HOME directory (cd ~)
-ln -sf ~/.dotfiles/.gitconfig .gitconfig
-ln -sf ~/.dotfiles/.gitignore .gitignore
-ln -sf ~/.dotfiles/.czrc .czrc
-ln -sf ~/.dotfiles/.config .
+curl -sL https://raw.githubusercontent.com/Mephisto-Grumpy/dotfiles/main/build | bash
 ```
 
 ## `📝` License
