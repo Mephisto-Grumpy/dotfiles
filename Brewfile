@@ -18,4 +18,5 @@ lazygit
 node
 python
 oven-sh/bun/bun
+pungrumpy/formulas/dockercolorize
 pnpm
