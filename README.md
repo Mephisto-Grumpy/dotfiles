@@ -27,7 +27,7 @@
 
 ## `🐙` Git
 
-- [Git Commitizen Emoji](https://github.com/promet99/cz-emoji-conventional) - A commitizen adapter for conventional commits with emojis `npm install -g cz-emoji-conventional commitizen`
+- [Git Commitizen Emoji](https://github.com/PunGrumpy/cz-emoji-conventional-message) - A commitizen adapter for conventional commits with emojis `npm install -g cz-emoji-conventional-message commitizen`
 
 ## `📦` Setup
 
