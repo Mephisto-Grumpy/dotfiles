@@ -20,6 +20,7 @@
   - [Fzf for fish](https://github.com/PatrickF1/fzf.fish) - Interactive filtering `fisher install PatrickF1/fzf.fish`
   - [Puffer for fish](https://github.com/nickeb96/puffer-fish) - Text expander `fisher install nickeb96/puffer-fish`
   - [Pisces for fish](https://github.com/laughedelic/pisces) - Paired symbols `fisher install laughedelic/pisces`
+  - [SSH Agent](https://github.com/danhper/fish-ssh-agent) - SSH agent `fisher install danhper/fish-ssh-agent`
 - [Exa](https://the.exa.website/) - A modern replacement for `ls`
 - [Peco](https://peco.github.io/) - A simplistic interactive filtering tool
 - [Fzf](https://github.com/junegunn/fzf) - A command-line fuzzy finder
