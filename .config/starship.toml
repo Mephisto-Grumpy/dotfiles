@@ -134,3 +134,9 @@ disabled = true
 
 [kotlin]
 disabled = true
+
+[package]
+disabled = true
+
+[crystal]
+disabled = true
