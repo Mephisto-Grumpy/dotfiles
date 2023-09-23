@@ -106,26 +106,31 @@ nvim_lsp.lua_ls.setup {
   },
 }
 
+-- Tailwind CSS
 nvim_lsp.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- CSS
 nvim_lsp.cssls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- Astro
 nvim_lsp.astro.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- Prisma
 nvim_lsp.prismals.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- Go
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -134,16 +139,19 @@ nvim_lsp.gopls.setup {
   root_dir = nvim_lsp.util.root_pattern("go.mod", "go.work", ".git"),
 }
 
+-- Docker
 nvim_lsp.dockerls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- Docker Compose
 nvim_lsp.docker_compose_language_service.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- Yaml
 nvim_lsp.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -158,11 +166,13 @@ nvim_lsp.yamlls.setup {
   }
 }
 
+-- Helm
 nvim_lsp.helm_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- Terrform
 nvim_lsp.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -178,7 +188,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "󰃤 ", Warn = " ", Info = " ", Hint = "󰞏 " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
