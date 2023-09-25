@@ -64,7 +64,7 @@ if test -f $HOME/.anaconda3/bin/conda
 end
 
 # Rye (Python)
-set -gx PATH $HOME/.rye/shrims $PATH
+set -gx PATH $HOME/.rye/shims $PATH
 
 # Modular (Mojo)
 set -gx MODULAR_HOME $HOME/.modular
