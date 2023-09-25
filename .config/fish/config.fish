@@ -60,19 +60,26 @@ set -gx PATH $HOME/.local/bin/python2 $PATH
 # Anaconda
 set -gx PATH $HOME/.anaconda3/bin $PATH
 if test -f $HOME/.anaconda3/bin/conda
-    eval $HOME/.anaconda3/bin/conda "shell.fish" "hook" $argv | source
+    eval $HOME/.anaconda3/bin/conda "shell.fish" hook $argv | source
 end
+
+# Rye (Python)
+set -gx PATH $HOME/.rye/shrims $PATH
+
+# Modular (Mojo)
+set -gx MODULAR_HOME $HOME/.modular
+set -gx PATH $MODULAR_HOME/pkg/packages.modular.com_mojo/bin $PATH
 
 # Go
 set -gx GOPATH $HOME/.go
 
 # Starship
-if command -qv starship &> /dev/null
+if command -qv starship &>/dev/null
     source (dirname (status --current-filename))/starship.fish
     eval (starship init fish)
 end
 
 # Docker
-if command -qv docker &> /dev/null && command -qv dockercolorize &> /dev/null
+if command -qv docker &>/dev/null && command -qv dockercolorize &>/dev/null
     source (dirname (status --current-filename))/docker.fish
 end
