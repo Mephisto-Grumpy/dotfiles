@@ -1,6 +1,6 @@
 local M = {}
 
-function M.dolphin()
+function M.shark()
 	---@type table?
 	local id
 	local ok = true
