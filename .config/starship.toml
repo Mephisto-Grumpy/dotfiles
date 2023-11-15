@@ -1,8 +1,8 @@
 # ~/.config/starship.toml
 
-add_newline = true  # Inserts a blank line between shell prompts
-command_timeout = 1000  # Change command timeout from 500 to 1000 ms
-format = """$env_var $all"""  # Add custom formatting before other stuff
+add_newline = true           # Inserts a blank line between shell prompts
+command_timeout = 1000       # Change command timeout from 500 to 1000 ms
+format = """$env_var $all""" # Add custom formatting before other stuff
 
 # Drop ugly default prompt characters
 [character]
@@ -48,7 +48,7 @@ format = "at [$path]($style)[$read_only]($read_only_style) "
 
 # Shows current git branch
 [git_branch]
-symbol = " "
+symbol = " "
 format = "via [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
@@ -58,16 +58,16 @@ style = "bold green"
 [git_status]
 format = '[\($all_status$ahead_behind\)]($style) '
 style = "bold green"
-conflicted = "🏳"
+conflicted = " "
 up_to_date = " "
 untracked = " "
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
-stashed = " "
+stashed = " "
 modified = " "
 staged = '[++\($count\)](green)'
-renamed = "襁 "
+renamed = "󱁤 "
 deleted = " "
 
 # Kubernetes
@@ -96,7 +96,7 @@ symbol = "🐹 "
 
 # .NET
 [dotnet]
-symbol = " "
+symbol = "󰪮 "
 
 # Java
 [java]
