@@ -1,4 +1,4 @@
-local discipline = require("pungrumpy.discipline")
+local discipline = require("mephisto.discipline")
 
 discipline.dolphin()
 
