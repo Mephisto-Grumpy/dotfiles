@@ -137,4 +137,6 @@ Brewfile.lock.json
 .config/dlv/
 .config/ngrok/
 .config/systemd
+.config/lazygit
+.config/go
 .docker/
