@@ -52,5 +52,9 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 keymap.set("n", "<leader>r", function()
-	require("craftzdog.utils").replaceHexWithHSL()
+	require("mephisto.utils").replaceHexWithHSL()
+end)
+
+keymap.set("n", "<leader>i", function()
+	require("mephisto.lsp").toggleInlayHints()
 end)
