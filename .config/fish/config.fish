@@ -67,6 +67,10 @@ end
 set -gx MODULAR_HOME $HOME/.modular
 set -gx PATH $MODULAR_HOME/pkg/packages.modular.com_mojo/bin $PATH
 
+# Julia
+set -gx PATH $HOME/.julia/julia-1.10.0/bin $PATH
+set -gx JULIA_DEPOT_PATH $HOME/.julia
+
 # Go
 set -gx GOPATH $HOME/.go
 
