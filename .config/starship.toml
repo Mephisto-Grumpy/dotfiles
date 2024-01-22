@@ -75,9 +75,6 @@ deleted = " "
 format = 'via [🐳 $context\($namespace\)](bold purple) '
 disabled = false
 
-[kubernetes.context_aliases]
-"docker-desktop" = "docker"
-
 # Gradle
 [gradle]
 symbol = "🐘 "
