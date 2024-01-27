@@ -70,11 +70,6 @@ staged = '[++\($count\)](green)'
 renamed = "󱁤 "
 deleted = " "
 
-# Kubernetes
-[kubernetes]
-format = 'via [🐳 $context\($namespace\)](bold purple) '
-disabled = false
-
 # Gradle
 [gradle]
 symbol = "🐘 "
@@ -109,6 +104,9 @@ disabled = true
 disabled = true
 
 [docker_context]
+disabled = true
+
+[kubernetes]
 disabled = true
 
 [helm]
