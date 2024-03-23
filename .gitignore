@@ -139,4 +139,5 @@ Brewfile.lock.json
 .config/systemd
 .config/lazygit
 .config/go
+.config/ghc
 .docker/
