@@ -74,6 +74,10 @@ set -gx JULIA_DEPOT_PATH $HOME/.julia
 # Go
 set -gx GOPATH $HOME/.go
 
+# Haskell
+set -gx PATH $HOME/.cabal/bin $PATH
+set -gx PATH $HOME/.ghcup/bin $PATH
+
 # Starship
 if command -qv starship &>/dev/null
     source (dirname (status --current-filename))/starship.fish
@@ -84,7 +88,3 @@ end
 if command -qv docker &>/dev/null && command -qv dockercolorize &>/dev/null
     source (dirname (status --current-filename))/docker.fish
 end
-
-# Haskell
-set -gx PATH $HOME/.cabal/bin $PATH
-set -gx PATH $HOME/.ghcup/bin $PATH
