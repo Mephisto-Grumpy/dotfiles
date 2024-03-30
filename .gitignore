@@ -140,4 +140,5 @@ Brewfile.lock.json
 .config/lazygit
 .config/go
 .config/ghc
+.config/ggshield
 .docker/
