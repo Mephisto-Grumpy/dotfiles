@@ -36,6 +36,7 @@
 - [Peco](https://peco.github.io/) - A simplistic interactive filtering tool
 - [Fzf](https://github.com/junegunn/fzf) - A command-line fuzzy finder
 - [Ghq](https://github.com/x-motemen/ghq) - A remote repository management tool
+- [Ripgrep](https://github.com/BurntSushi/ripgrep) - A line-oriented search tool that recursively searches your current directory for a regex pattern
 
 ## `🐙` Git
 
