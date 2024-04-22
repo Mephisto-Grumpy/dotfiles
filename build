@@ -1,76 +1,133 @@
 #!/bin/bash
 
 ##############################################
-#                   COLOR                    # 
+#                   COLOR                    #
 ##############################################
-RED=$(tput setaf 1) || "\033[0;31m"
-BLUE=$(tput setaf 4) || "\033[0;34m"
-RESET=$(tput sgr0) || "\033[0m"
+RED=$(tput setaf 1)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
 
 ##############################################
-#                   PATH                     #
+#                 FUNCTIONS                  #
 ##############################################
 DOTFILES_PATH="$HOME/.dotfiles"
 
-##############################################
-#                   UTILS                    #
-##############################################
-if [ ! -d "$DOTFILES_PATH" ]; then
-    echo -e "${RED}ERROR: ${RESET}Dotfiles path not found"
+check_dotfiles_path() {
+    if [ ! -d "$DOTFILES_PATH" ]; then
+        if [ -e "$DOTFILES_PATH" ]; then
+            confirm "Directory $DOTFILES_PATH already exists. Do you want to delete it?" && rm -rf "$DOTFILES_PATH"
+
+            if [ -e "$DOTFILES_PATH" ]; then
+                handle_error "Failed to delete existing directory $DOTFILES_PATH."
+            fi
+
+            echo "${RED}Thanks for using build script! 👋 C'ya next time${RESET}"
+            exit 0
+        fi
+
+        echo "${BLUE}Cloning dotfiles repository...${RESET}"
+        git clone https://github.com/Mephisto-Grumpy/dotfiles "$DOTFILES_PATH" || handle_error "Failed to clone dotfiles repository."
+    fi
+}
+
+confirm() {
+    read -r -p "$1 [y/N] " response
+    case "$response" in
+    [yY][eE][sS] | [yY])
+        true
+        ;;
+    *)
+        false
+        ;;
+    esac
+}
+
+handle_error() {
+    echo "${RED}Error: $1${RESET}" >&2
     exit 1
-fi
+}
+
+install_homebrew() {
+    echo "${BLUE}Installing 🍺 Homebrew...${RESET}"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" || handle_error "Failed to install Homebrew."
+
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
+}
+
+install_brew_packages() {
+    echo "${BLUE}Installing 🍺 Homebrew packages...${RESET}"
+    brew bundle --file="$DOTFILES_PATH/Brewfile" || handle_error "Failed to install Homebrew packages."
+}
+
+setup_fish_shell() {
+    echo "${BLUE}Setting up 🐟 Fish shell...${RESET}"
+
+    if ! command -v fish &>/dev/null; then
+        handle_error "Fish shell is not installed."
+    fi
+
+    if ! fish -c "fisher --version" >/dev/null; then
+        fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher" || handle_error "Failed to install Fisher."
+    else
+        echo "Fisher is already installed."
+    fi
+
+    echo "${BLUE}Setting up 🐟 Fish shell as temporary default shell...${RESET}"
+    echo "$(which fish)" | sudo tee -a /etc/shells
+    chsh -s "$(which fish)" || handle_error "Failed to set Fish shell as temporary default."
+}
+
+restore_default_shell() {
+    echo "${BLUE}Restoring default shell...${RESET}"
+    chsh -s "$(getent passwd "$USER" | cut -d: -f7)" || handle_error "Failed to restore default shell."
+}
+
+install_fish_packages() {
+    echo "${BLUE}Installing 🐟 Fish shell packages...${RESET}"
+    fish -c "fisher install jethrokuan/z" || handle_error "Failed to install z."
+    fish -c "fisher install PatrickF1/fzf.fish" || handle_error "Failed to install fzf."
+    fish -c "fisher install nickeb96/puffer-fish" || handle_error "Failed to install puffer-fish."
+    fish -c "fisher install laughedelic/pisces" || handle_error "Failed to install pisces."
+}
+
+link_dotfiles() {
+    echo "${BLUE}Linking dotfiles...${RESET}"
+
+    ln -sf "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
+    ln -sf "$DOTFILES_PATH/.gitignore" "$HOME/.gitignore"
+    ln -sf "$DOTFILES_PATH/.config" "$HOME/.config"
+    ln -sf "$DOTFILES_PATH/.czrc" "$HOME/.czrc"
+}
+
+main() {
+    echo "${BLUE}Setting up dotfiles...${RESET}"
+
+    check_dotfiles_path
+
+    confirm "This script will install and configure dotfiles. Continue?" || exit
+
+    current_shell=$(basename "$SHELL")
+    if [[ "$current_shell" == "bash" || "$current_shell" == "zsh" ]]; then
+        install_homebrew
+        install_brew_packages
+
+        setup_fish_shell
+        install_fish_packages
+        restore_default_shell
+    else
+        install_homebrew
+        install_brew_packages
+        install_fish_packages
+    fi
+
+    link_dotfiles
+}
 
 ##############################################
-#                INSTALLATION                #
+#                   MAIN                     #
 ##############################################
-echo "${BLUE}Installing 🍺 Homebrew...${RESET}"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-if ! command -v brew &> /dev/null; then
-    echo -e "${RED}ERROR: Homebrew installation failed.${RESET}"
-    exit 1
-fi
-
-echo -e "${BLUE}Sourcing Homebrew...${RESET}"
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
-
-echo -e "${BLUE}Installing 🍺 Homebrew packages...${RESET}"
-brew bundle --file="$DOTFILES_PATH/Brewfile"
-
-##############################################
-#                   SHELL                    #
-##############################################
-echo -e "${BLUE}Setting up 🐟 Fish shell...${RESET}"
-
-if ! command -v fish &> /dev/null; then
-    echo -e "${RED}ERROR: Fish shell is not installed.${RESET}"
-    exit 1
-fi
-
-if ! fish -c "fisher --version" > /dev/null; then
-    fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
-else
-    echo "Fisher is already installed."
-fi
-
-echo -e "${BLUE}Setting up 🐟 Fish shell as default shell...${RESET}"
-echo "$(which fish)" | sudo tee -a /etc/shells
-exec chsh -s "$(which fish)"
-
-echo "${BLUE}Installing 🐟 Fish shell packages...${RESET}"
-fish -c "fisher install jethrokuan/z"
-fish -c "fisher install PatrickF1/fzf.fish"
-fish -c "fisher install nickeb96/puffer-fish"
-fish -c "fisher install laughedelic/pisces"
-
-##############################################
-#                   LINKS                    #
-##############################################
-echo "${BLUE}Linking dotfiles...${RESET}"
-ln -sf "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
-ln -sf "$DOTFILES_PATH/.gitignore" "$HOME/.gitignore"
-ln -sf "$DOTFILES_PATH/.config" "$HOME/.config"
-ln -sf "$DOTFILES_PATH/.czrc" "$HOME/.czrc"
+main
