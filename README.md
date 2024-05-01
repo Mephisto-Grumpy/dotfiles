@@ -7,12 +7,22 @@
 ## `💻` Preview
 
 <div align="center">
-  <img src=".github/images/preview.png" alt="Preview" width="100%" />
-  <p>
-    <button style="background-color: #1d1f21; color: #c5c8c6; border: 1px solid #373b41; border-radius: 3px; padding: 5px 10px; font-size: 14px; cursor: pointer;" onclick="window.open('.config/nvim', '_blank')">
-      Neovim configuration
-    </button>
-  </p>
+  <div>
+    <img src=".github/images/neovim-preview.png" alt="Preview" width="100%" />
+    <p>
+      <button style="background-color: #1d1f21; color: #c5c8c6; border: 1px solid #373b41; border-radius: 3px; padding: 5px 10px; font-size: 14px; cursor: pointer;" onclick="window.open('.config/nvim', '_blank')">
+        Neovim configuration
+      </button>
+    </p>
+  </div>
+  <div>
+    <img src=".github/images/terminal-preview.png" alt="Preview" width="100%" />
+    <p>
+      <button style="background-color: #1d1f21; color: #c5c8c6; border: 1px solid #373b41; border-radius: 3px; padding: 5px 10px; font-size: 14px; cursor: pointer;" onclick="window.open('.config/fish', '_blank')">
+        Fish Shell configuration
+      </button>
+    </p>
+  </div>
 </div>
 
 ## `📝` Content
