@@ -70,8 +70,11 @@ deleted = '[󰍶 deleted=${count}](red) '
 # Kubernetes
 [kubernetes]
 format = 'via [󱃾 $context\($namespace\)](bold purple) '
-context_aliases = { "docker-desktop" = "docker" }
 disabled = false
+
+[[kubernetes.contexts]]
+context_pattern = '*docker-desktop*'
+context_alias = 'docker'
 
 # Go
 [golang]
