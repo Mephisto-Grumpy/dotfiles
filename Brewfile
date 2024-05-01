@@ -1,6 +1,3 @@
-##############################################
-#                Brew Bundle                 #
-##############################################
 tap "gitguardian/tap"
 tap "homebrew/bundle"
 tap "jesseduffield/lazygit"
@@ -10,6 +7,7 @@ tap "snyk/tap"
 brew "asciinema"
 brew "bat"
 brew "cmake"
+brew "deno"
 brew "docker"
 brew "eza"
 brew "fd"
@@ -30,7 +28,7 @@ brew "node"
 brew "peco"
 brew "pnpm"
 brew "ripgrep"
-brew "ruby"
+brew "ruby", link: false
 brew "rust"
 brew "starship"
 brew "tmux"
