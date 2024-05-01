@@ -79,12 +79,6 @@ set -gx GOPATH $HOME/.go
 set -gx PATH $HOME/.cabal/bin $PATH
 set -gx PATH $HOME/.ghcup/bin $PATH
 
-# Starship
-if command -qv starship &>/dev/null
-    source (dirname (status --current-filename))/starship.fish
-    eval (starship init fish)
-end
-
 # Docker
 if command -qv docker &>/dev/null && command -qv dockercolorize &>/dev/null
     source (dirname (status --current-filename))/docker.fish
