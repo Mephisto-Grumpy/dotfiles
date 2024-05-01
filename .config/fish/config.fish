@@ -83,3 +83,8 @@ set -gx PATH $HOME/.ghcup/bin $PATH
 if command -qv docker &>/dev/null && command -qv dockercolorize &>/dev/null
     source (dirname (status --current-filename))/docker.fish
 end
+
+# Starship
+if command -qv starship &>/dev/null
+    eval (starship init fish) | source
+end
