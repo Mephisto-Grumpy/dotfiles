@@ -3,9 +3,10 @@
 
 # ---
 
-add_newline = true                                                                  # Inserts a blank line between shell prompts
-command_timeout = 1000                                                              # Change command timeout from 500 to 1000 ms
-format = '''$os$username$hostname$kubernetes$directory$git_branch$git_status$all''' # Add custom formatting before other stuff
+add_newline = true
+command_timeout = 1000
+format = '''$os$username$hostname$kubernetes$directory$git_branch$git_status
+$character'''
 
 # Drop ugly default prompt characters
 [character]
