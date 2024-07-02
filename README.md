@@ -50,7 +50,7 @@
 
 ## `🐙` Git
 
-- [Git Commitizen Emoji](https://github.com/PunGrumpy/cz-emoji-conventional-message) - A commitizen adapter for conventional commits with emojis `npm install -g cz-emoji-conventional-message commitizen`
+- [Coventional Message](https://www.npmjs.com/package/cz-conventional-changelog) - A commitizen adapter following the conventional-changelog convention `npm install -g cz-conventional-changelog`
 
 ## `📦` Setup
 
