@@ -32,11 +32,11 @@
 
 ## `🐟` Shell (🍎 & 🐧)
 
-- [Starship](https://starship.rs/) - The minimal, blazing-fast, and infinitely customizable prompt for any shell
 - [Nerd Font](https://www.nerdfonts.com/) - A collection of over 50 patched fonts
 - [Homebrew](https://brew.sh/) - The missing package manager for macOS (or Linux)
 - [Fish Shell](https://fishshell.com/) - A smart and user-friendly command line shell
   - [Fisher](https://github.com/jorgebucaran/fisher) - A plugin manager for Fish Shell `curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher`
+  - [Tide](https://github.com/IlanCosman/tide) - A modern prompt for the Fish Shell `fisher install IlanCosman/tide@v6`
   - [Z for fish](https://github.com/jethrokuan/z) - Directory jumping `fisher install jethrokuan/z`
   - [Fzf for fish](https://github.com/PatrickF1/fzf.fish) - Interactive filtering `fisher install PatrickF1/fzf.fish`
   - [Puffer for fish](https://github.com/nickeb96/puffer-fish) - Text expander `fisher install nickeb96/puffer-fish`
