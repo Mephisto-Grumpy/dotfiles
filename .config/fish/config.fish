@@ -19,16 +19,6 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-# Aliases
-alias ls "ls -p -G"
-alias la "ls -A"
-alias ll "ls -l"
-alias lla "ll -A"
-alias g git
-alias vim nvim
-alias d docker
-command -qv nvim && alias vim nvim
-
 # OS
 switch (uname)
     case Darwin
@@ -38,6 +28,11 @@ switch (uname)
     case '*'
         source (dirname (status --current-filename))/config-windows.fish
 end
+
+# Aliases
+source (dirname (status --current-filename))/config-aliases.fish
+
+########### Source all the things ###########
 
 # Cargo
 set -gx PATH $HOME/.cargo/bin $PATH
@@ -52,6 +47,9 @@ set -gx PATH $PNPM_HOME $PATH
 # Bun
 set -gx PATH $HOME/.bun/bin $PATH
 
+# Deno
+set -gx PATH $HOME/.deno/bin $PATH
+
 # Python
 set -gx PATH $HOME/.local/bin $PATH
 
@@ -64,27 +62,21 @@ if test -f $HOME/.anaconda3/bin/conda
     eval $HOME/.anaconda3/bin/conda "shell.fish" hook $argv | source
 end
 
-# Modular (Mojo)
-set -gx MODULAR_HOME $HOME/.modular
-set -gx PATH $MODULAR_HOME/pkg/packages.modular.com_mojo/bin $PATH
-
-# Julia
-set -gx PATH $HOME/.julia/julia-1.10.0/bin $PATH
-set -gx JULIA_DEPOT_PATH $HOME/.julia
-
 # Go
 set -gx GOPATH $HOME/.go
+set -gx PATH $GOPATH/bin $PATH
 
-# Haskell
-set -gx PATH $HOME/.cabal/bin $PATH
-set -gx PATH $HOME/.ghcup/bin $PATH
-
-# Docker
-if command -qv docker &>/dev/null && command -qv dockercolorize &>/dev/null
-    source (dirname (status --current-filename))/docker.fish
-end
+# PDTM
+set -gx PDTM_HOME $HOME/.pdtm
+set -gx PATH $PDTM_HOME/go/bin $PATH
 
 # Starship
 if command -qv starship &>/dev/null
-    eval (starship init fish) | source
+    eval (starship init fish)
 end
+
+# Direnv
+if command -qv direnv &>/dev/null
+    eval (direnv hook fish)
+end
+
