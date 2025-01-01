@@ -6,16 +6,16 @@ function M.shark()
 	local ok = true
 	for _, key in ipairs({ "h", "j", "k", "l", "+", "-" }) do
 		local count = 0
-		local timer = assert(vim.loop.new_timer())
+		local timer = assert(vim.uv.new_timer())
 		local map = key
 		vim.keymap.set("n", key, function()
 			if vim.v.count > 0 then
 				count = 0
 			end
-			if count >= 10 then
-				ok, id = pcall(vim.notify, "What the freak! Hold on, I'm calling the Shark...", vim.log.levels.WARN, {
+			if count >= 10 and vim.bo.buftype ~= "nofile" then
+				ok = pcall(vim.notify, "What the freak! Hold on, I'm calling the Shark...", vim.log.levels.WARN, {
 					icon = "🦈",
-					replace = id,
+					id = "Shark",
 					keep = function()
 						return count >= 10
 					end,
