@@ -37,7 +37,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.python" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
 		{ import = "lazyvim.plugins.extras.lang.terraform" },
-		{ import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "lazyvim.plugins.extras.ai.copilot" },
 		-- { import = "lazyvim.plugins.extras.coding.tabnine" },
 		-- { import = "lazyvim.plugins.extras.coding.codeium" },
 		-- { import = "lazyvim.plugins.extras.dap.core" },
