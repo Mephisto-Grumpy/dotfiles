@@ -1,10 +1,10 @@
 [github]
-  user = PunGrumpy
+  user = Mephisto-Grumpy
 [user]
-	name = PunGrumpy
-  email = "108584943+PunGrumpy@users.noreply.github.com"
+	name = Mephisto-Grumpy
+  email = "99166827+Mephisto-Grumpy@users.noreply.github.com"
 [init]
-  author = PunGrumpy
+  author = Mephisto-Grumpy
   defaultBranch = main
 [core]
 	excludesfile = ~/.gitignore
